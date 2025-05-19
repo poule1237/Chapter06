@@ -40,11 +40,16 @@ public class Client {
 
 		// 스캐너 준비
 		Scanner sc = new Scanner(System.in);
-
+		/*
+		InputStream sin = System.in;     //주스트림
+		InputStreamReader sinr = new InputStreamReader(sin , "MS949");
+		BufferedReader str = new BufferedReader(sinr);
+		 */
 		while (true) {
 
 			// 메세지 키보드로 입력받기
 			String msg = sc.nextLine(); // 입력대기
+			//String msg = str.readLine();
 
 			if ("/q".equals(msg)) {// 끝내는 상황
 				break;
@@ -61,9 +66,20 @@ public class Client {
 		}
 
 		System.out.println("======================================");
-		System.out.println("<클라이언트 종료>");
+		//System.out.println("<클라이언트 종료>");
+		
+		//println 스트림
+		OutputStream pout = System.out;
+		OutputStreamWriter powr = new OutputStreamWriter(pout , "MS949");
+		BufferedWriter pbr = new BufferedWriter(powr);
+		
+		pbr.write("<클라이언트 종료>");
+		pbr.newLine();
+		pbr.flush();
 
 		// 닫기
+		//str.close();
+		pbr.close();
 		br.close();
 		sc.close();
 		bw.close();

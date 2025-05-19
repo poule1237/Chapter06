@@ -39,7 +39,7 @@ public class Server {
 
 		// 읽기 스트림 준비
 		// InputStream in = new FileInputStream("C:\\javaStudy\\MS949-copy.txt");
-		InputStream in = socket.getInputStream();
+		InputStream in = socket.getInputStream();  //주스트림
 		InputStreamReader isr = new InputStreamReader(in, "UTF-8");
 		BufferedReader br = new BufferedReader(isr);
 
